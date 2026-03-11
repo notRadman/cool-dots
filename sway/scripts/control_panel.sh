@@ -36,13 +36,14 @@ ENTRIES=(
     #  Display Name            | Command                       | Icon (theme name or path)       | Emoji
     "Audio Settings            | pavucontrol                   | audio-volume-high               | 🔊"
     "Theme Settings            | nwg-look                      | preferences-desktop-theme       | 🎨"
-    "Display Settings          | wdisplays                     | preferences-desktop-display     | 🖥️"
+#    "Display Settings          | wdisplays                     | preferences-desktop-display     | 🖥️"
     "Bluetooth                 | blueman-manager               | bluetooth                       | 🔵"
     "Network                   | nm-connection-editor          | network-manager                 | 🌐"
     "Printer (CUPS)            | url:http://localhost:631      | printer                         | 🖨️"
     "File Sync (Syncthing)     | url:http://localhost:8384     | syncthing                       | 🔄"
-    "Keyboard Settings         | ibus-setup                    | input-keyboard                  | ⌨️"
-    "File Manager              | thunar                        | system-file-manager             | 📁"
+#    "Keyboard Settings         | ibus-setup                    | input-keyboard                  | ⌨️"
+#    "File Manager              | thunar                        | system-file-manager             | 📁"
+    "Audio Patchbay (Helvum)   | helvum                        | audio-card                      | 🎛️"
     "Network Usage             | __vnstat__                    |                                 |   "
     "Help                      | __help__                      |                                 |   "
 )
