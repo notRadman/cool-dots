@@ -1,0 +1,30 @@
+# Default timeout (in milliseconds)
+default-timeout=5000
+
+# Low priority timeout
+# default-timeout=3000
+
+# High priority (critical) timeout
+# 0 = stays until you close it
+# default-timeout=0
+
+# Optional: number of notifications shown at the same time
+max-visible=5
+
+# Optional: notification position
+anchor=bottom-right
+# Options: top-right, top-left, bottom-right, bottom-left, top-center, bottom-center, center
+
+# Optional: distance from screen edges
+margin=10
+
+# Optional: styling
+#background-color=#2e3440
+#text-color=#d8dee9
+#border-color=#88c0d0
+#border-size=2
+#border-radius=5
+#padding=15
+
+# Optional: font
+font=JetBrains Mono 11

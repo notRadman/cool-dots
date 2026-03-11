@@ -1,0 +1,40 @@
+" ========== المظهر ==========
+colorscheme slate           " كولور ثيم حلو من الديفولت
+syntax on                   " تلوين الكود
+set number                  " أرقام الأسطر
+set relativenumber          " أرقام نسبية (سهلة للحركة)
+set cursorline              " تظليل السطر الحالي
+set showmatch               " يوريك الأقواس المغلقة
+
+" ========== الإزاحة والمسافات ==========
+set tabstop=4               " Tab = 4 مسافات
+set shiftwidth=4            " الإزاحة التلقائية 4 مسافات
+set expandtab               " حول Tab لمسافات
+set autoindent              " إزاحة تلقائية
+set smartindent             " إزاحة ذكية حسب الكود
+
+" ========== البحث ==========
+set ignorecase              " تجاهل حالة الأحرف في البحث
+set smartcase               " لو كتبت حرف كبير، يبقى case-sensitive
+set hlsearch                " تظليل نتائج البحث
+set incsearch               " بحث فوري أثناء الكتابة
+
+" ========== تحسينات عامة ==========
+set mouse=a                 " تفعيل الماوس
+set clipboard=unnamedplus   " مشاركة الحافظة مع النظام
+set wrap                    " لف الأسطر الطويلة
+set scrolloff=8             " إبقاء 8 أسطر مرئية عند التمرير
+set signcolumn=yes          " عمود للعلامات (git, errors)
+set updatetime=300          " تحديث أسرع
+set encoding=utf-8          " دعم UTF-8
+set fileencoding=utf-8
+set termbidi
+
+" ========== شريط الحالة ==========
+set laststatus=2            " إظهار شريط الحالة دائماً
+set showcmd                 " إظهار الأوامر أثناء الكتابة
+set ruler                   " موقع المؤشر في الزاوية
+
+
+hi Normal guibg=NONE ctermbg=NONE
+hi NormalFloat guibg=NONE ctermbg=NONE

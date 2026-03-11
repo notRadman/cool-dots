@@ -1,0 +1,9 @@
+# sway
+sway/local.d/execs.conf
+sway/local.d/additional.conf
+sway/additional/TODO.md
+
+# coolshell
+coolshell/aliases.sh
+coolshell/additional.sh
+coolshell/functions.sh
