@@ -65,11 +65,10 @@ bindsym --to-code $mod+Shift+c exec clipman clear --all && notify-send "Clipman"
 ### Screenshots ###
 
 # Whole screen
-bindsym --to-code $mod+bracketright exec mkdir -p ~/Pictures/Screenshots && grim ~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png
+bindsym --to-code $mod+bracketright exec bash -c 'mkdir -p ~/Pictures/Screenshots && f=~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png && grim "$f" && notify-send "Screenshot ✓" "Saved: $(basename $f)" -i camera-photo'
 
 # Specific area
-bindsym --to-code $mod+shift+bracketright exec mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png
-
+bindsym --to-code $mod+shift+bracketright exec bash -c 'mkdir -p ~/Pictures/Screenshots && f=~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png && grim -g "$(slurp)" "$f" && notify-send "Screenshot ✓" "Saved: $(basename $f)" -i camera-photo'
 
 ### Screen Lock ###
 bindsym --to-code $mod+semicolon exec swaylock -f -c 000000
