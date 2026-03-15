@@ -51,6 +51,19 @@ get_disk_usage() {
     df -h / | awk 'NR==2 {print "Disk: "$4}'
 }
 
+get_hijri() {
+    result=$(curl -sL --max-time 3 "https://api.aladhan.com/v1/gToH?date=$(date +%d-%m-%Y)" 2>/dev/null | \
+        python3 -c "
+import sys, json
+try:
+    d = json.load(sys.stdin)['data']['hijri']
+    print(f\"{d['day']} {d['month']['en']} {d['year']} AH\")
+except:
+    pass
+" 2>/dev/null)
+    echo "$result"
+}
+
 # Initial display
 echo '{"version":1}'
 echo '['
@@ -60,11 +73,14 @@ cpu_temp=""
 cpu_usage=""
 ram_usage=""
 disk=""
+hijri=""
 counter=5
 disk_counter=30
+# يتحدث مرة كل ساعة (3600 ثانية)
+hijri_counter=3600
 
 while true; do
-    datetime=$(date '+%d/%m %I:%M %p')
+    datetime=$(date '+%I:%M %p')
     
     if [ $counter -ge 5 ]; then
         cpu_temp=$(get_cpu_temp)
@@ -77,12 +93,23 @@ while true; do
         disk=$(get_disk_usage)
         disk_counter=0
     fi
-    
-    status_text="ILOVEU | $disk | $ram_usage | $cpu_usage | Temp: $cpu_temp | $datetime "
+
+    if [ $hijri_counter -ge 3600 ]; then
+        hijri=$(get_hijri)
+        hijri_counter=0
+    fi
+
+    # لو مفيش نت، مش بيظهر التاريخ الهجري خالص
+    if [ -n "$hijri" ]; then
+        status_text="ILOVEU | $disk | $ram_usage | $cpu_usage | Temp: $cpu_temp | $hijri $datetime "
+    else
+        status_text="ILOVEU | $disk | $ram_usage | $cpu_usage | Temp: $cpu_temp | $datetime "
+    fi
     
     echo "[{\"full_text\":\"$status_text\"}],"
     
     counter=$((counter + 1))
     disk_counter=$((disk_counter + 1))
+    hijri_counter=$((hijri_counter + 1))
     sleep 1
 done
