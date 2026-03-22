@@ -12,6 +12,7 @@ git clone https://github.com/vinceliuice/Graphite-gtk-theme
 cd Graphite-gtk-theme
 ./install.sh -c dark -s compact --tweaks black
 ```
+or any theme you want i use gruvbox dark
 then use nwg looks.
 
 Zathura theme:  
