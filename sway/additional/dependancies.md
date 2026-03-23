@@ -8,6 +8,7 @@ nvim
 tilix
 lm_sensors
 top
+wlsunset
 
 ### FONTS ###
 JetBrains Mono (not in xbps repository)

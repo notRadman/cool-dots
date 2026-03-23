@@ -30,6 +30,9 @@ input type:touchpad {
 # Auto resolution (can change it based on screen and you can get infotmation by swaymsg -t get_outputs)
 output LVDS-2 resolution 1366x768@60.015Hz position 0,0
 
+# eye saver
+bindsym $mod+Shift+e exec pkill wlsunset || wlsunset -l 31.5 -L 34.47 -t 3700 -T 6499
+
 # Font
 font pango: Noto Sans Mono 11
 #font pango:JetBrains Mono 11, Cairo 11, Noto Sans Mono 11, Font Awesome 6 Free 11
