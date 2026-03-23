@@ -31,7 +31,7 @@ input type:touchpad {
 output LVDS-2 resolution 1366x768@60.015Hz position 0,0
 
 # eye saver
-bindsym $mod+Shift+e exec pkill wlsunset || wlsunset -l 31.5 -L 34.47 -t 3700 -T 6499
+bindsym --to-code $mod+Shift+e exec pkill wlsunset || wlsunset -l 31.5 -L 34.47 -t 3700 -T 6499
 
 # Font
 font pango: Noto Sans Mono 11
