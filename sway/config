@@ -40,7 +40,7 @@ font pango: Noto Sans Mono 11
 ### Main keybindings ###
 
 # Terminal
-bindsym --to-code $mod+Return exec $term -e tmux
+bindsym --to-code $mod+Return exec $term #-e tmux
 
 # Application Launcher
 bindsym --to-code $mod+d exec $menu
