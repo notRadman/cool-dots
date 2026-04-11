@@ -10,7 +10,7 @@ include ./local.d/*.conf
 ### Keyboard ###
 input type:keyboard {
     xkb_layout us,ara
-    xkb_options grp:lwin_toggle,lv3:ralt_alt
+    xkb_options grp:lwin_toggle,lv3:ralt_alt,caps:swapescape
     repeat_delay 300
     repeat_rate 50
 }
