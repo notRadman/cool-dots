@@ -66,24 +66,15 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move to bottom window' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to top window' })
 -- Leader (.) + regular vim moving things
 
+-- netrw config
+vim.g.netrw_browse_split = 0   -- افتح في نفس الـ window
+vim.g.netrw_banner = 0         -- اخبي الـ banner
+vim.g.netrw_liststyle = 1      -- tree view
+vim.g.netrw_winsize = 25       -- حجم الـ window لو فتحته split
+
+vim.g.netrw_list_cmd = 'ls -lhGF'
+vim.g.netrw_keepdir = 0
+vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open file explorer" })
+
 -- ========== Load Plugins ==========
 require('config.lazy')
-
--- ========== Auto-open file tree on startup ==========
---vim.api.nvim_create_autocmd("VimEnter", {
---  callback = function()
---    require("nvim-tree.api").tree.open()
---  end
---})
-
--- ========== Close all plugins (tree + terminal) ==========
-vim.keymap.set('n', '<leader>w', function()
-  -- Close nvim-tree
-  local nvim_tree_api = require('nvim-tree.api')
-  if nvim_tree_api.tree.is_visible() then
-    nvim_tree_api.tree.close()
-  end
-  
-  -- Close all terminals
-  vim.cmd('TermExec cmd="exit"')
-end, { desc = 'Close all plugins' })
