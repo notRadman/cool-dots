@@ -7,3 +7,7 @@ sway/additional/TODO.md
 coolshell/aliases.sh
 coolshell/additional.sh
 coolshell/functions.sh
+
+# emacs
+emacs/straight/
+emacs/auto-save-list/
