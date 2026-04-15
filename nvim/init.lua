@@ -1,10 +1,11 @@
 -- ========== Appearance ==========
-vim.cmd('colorscheme unokai')     -- Nice default color theme
+-- vim.cmd('colorscheme unokai')     -- Nice default color theme
 vim.opt.syntax = 'on'             -- Code syntax highlighting
 vim.opt.number = true             -- Line numbers
 vim.opt.relativenumber = true     -- Relative line numbers (easier for movement)
 vim.opt.cursorline = true         -- Highlight current line
 vim.opt.showmatch = true          -- Show matching brackets
+vim.g.mapleader = ','             -- (,) as leader key
 
 -- ========== Indentation and Spacing ==========
 vim.opt.tabstop = 4               -- Tab = 4 spaces
@@ -25,8 +26,15 @@ vim.opt.hlsearch = true           -- Highlight search results
 vim.opt.incsearch = true          -- Instant search while typing
 vim.keymap.set('n', '<Esc>', ':noh<CR>', { silent = true })
 
+-- ========== Netrw ==========
+vim.g.netrw_browse_split = 0   -- open in the same window
+vim.g.netrw_liststyle = 1      -- tree view
+vim.g.netrw_winsize = 25       -- the size of netrw if opened in split
+vim.g.netrw_keepdir = 0
+vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open file explorer" })
+
 -- ========== General Improvements ==========
-vim.opt.mouse = 'a'               -- Enable mouse
+vim.opt.mouse = ''                -- "a" enables mouse
 vim.opt.clipboard = 'unnamedplus' -- Share clipboard with system
 vim.opt.wrap = true               -- Wrap long lines
 vim.opt.scrolloff = 8             -- Keep 8 lines visible when scrolling
@@ -57,7 +65,6 @@ vim.keymap.set('n', '<Space>k', ':resize +3<CR>', { desc = 'Resize taller (up)',
 vim.keymap.set('n', '<Space>l', ':vertical resize +3<CR>', { desc = 'Resize wider (right)', silent = true })
 
 -- ========== Leader Key ==========
-vim.g.mapleader = ','  -- (,) as leader key
 
 -- ========== Window Navigation ==========
 vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move to left window' })
@@ -65,16 +72,6 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to right window' })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move to bottom window' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to top window' })
 -- Leader (.) + regular vim moving things
-
--- netrw config
-vim.g.netrw_browse_split = 0   -- افتح في نفس الـ window
-vim.g.netrw_banner = 0         -- اخبي الـ banner
-vim.g.netrw_liststyle = 1      -- tree view
-vim.g.netrw_winsize = 25       -- حجم الـ window لو فتحته split
-
-vim.g.netrw_list_cmd = 'ls -lhGF'
-vim.g.netrw_keepdir = 0
-vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open file explorer" })
 
 -- ========== Load Plugins ==========
 require('config.lazy')
