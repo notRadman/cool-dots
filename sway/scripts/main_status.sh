@@ -5,7 +5,7 @@
 
 # for Hemmah app
 get_campaign() {
-    ~/Links/Hemmah/src/HemmahAssets/hemmah-prompt.sh 2>/dev/null || echo ""
+    ~/Links/Hemmah/src/extras/widgets/hemmah-prompt.sh 2>/dev/null || echo ""
 }
 
 get_volume() {
