@@ -64,7 +64,9 @@ vim.keymap.set('n', '<Space>j', ':resize -3<CR>', { desc = 'Resize shorter (down
 vim.keymap.set('n', '<Space>k', ':resize +3<CR>', { desc = 'Resize taller (up)', silent = true })
 vim.keymap.set('n', '<Space>l', ':vertical resize +3<CR>', { desc = 'Resize wider (right)', silent = true })
 
--- ========== Leader Key ==========
+-- ========== Bash ==========
+vim.opt.shell = "bash"
+vim.opt.shellcmdflag = "-ic"  -- i = interactive, c = command
 
 -- ========== Window Navigation ==========
 vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Move to left window' })
@@ -72,6 +74,12 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to right window' })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Move to bottom window' })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Move to top window' })
 -- Leader (.) + regular vim moving things
+
+-- ========== Bash ==========
+local manual_path = vim.fn.stdpath("config") .. "/manual"
+for _, file in ipairs(vim.fn.glob(manual_path .. "/*.lua", false, true)) do
+  dofile(file)
+end
 
 -- ========== Load Plugins ==========
 require('config.lazy')
