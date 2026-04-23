@@ -21,10 +21,12 @@ PS1='[\u@\h][\W] > '
 
 #### Core Aliases ####
 alias ll='ls -lhGF'
+alias lla='ls -lhGFA'
 alias rm='trash'
 alias rmm='/bin/rm'
 alias n='nvim'
 alias p3='python3'
+alias t='tmux'
 
 
 #### Core Functions ####
