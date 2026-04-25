@@ -81,5 +81,10 @@ for _, file in ipairs(vim.fn.glob(manual_path .. "/*.lua", false, true)) do
   dofile(file)
 end
 
+
+-- ========== Additionals ==========
+-- vim.opt.guicursor = "a:hor20"
+vim.opt.colorcolumn = "80"
+
 -- ========== Load Plugins ==========
 require('config.lazy')
