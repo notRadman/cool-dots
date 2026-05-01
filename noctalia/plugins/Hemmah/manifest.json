@@ -1,0 +1,19 @@
+{
+  "id": "hemmah",
+  "name": "Hemmah",
+  "version": "1.0.0",
+  "minNoctaliaVersion": "3.6.0",
+  "author": "notRadman",
+  "license": "MIT",
+  "repository": "",
+  "description": "Shows current Hemmah campaign progress in the bar",
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {}
+  }
+}
