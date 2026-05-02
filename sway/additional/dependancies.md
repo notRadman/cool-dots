@@ -6,10 +6,10 @@ SWAYSOURCE in /scripts/toggle_second_bar.sh
 fuzzel
 nvim
 tmux
-tilix
 lm_sensors
 top
 wlsunset
+elogind as a session manager
 
 ### FONTS ###
 JetBrains Mono (not in xbps repository)
