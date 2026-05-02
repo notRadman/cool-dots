@@ -10,7 +10,7 @@ include ./local.d/*.conf
 ### Keyboard ###
 input type:keyboard {
     xkb_layout us,ara
-    xkb_options grp:lwin_toggle,lv3:ralt_alt
+    xkb_options lv3:ralt_alt
     repeat_delay 300
     repeat_rate 50
 }
@@ -45,6 +45,9 @@ bindsym --to-code $mod+Return exec $term #-e tmux
 # Application Launcher
 bindsym --to-code $mod+d exec $menu
 
+# Language changing script
+bindsym --to-code Super_L exec ~/.config/sway/scripts/langnext.sh
+
 # Kill Window
 bindsym --to-code $mod+Shift+q kill
 
@@ -60,10 +63,11 @@ bindsym --to-code XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
 bindsym --to-code XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
 
 ### Clipboard(near line 36) ###
-# Show the clipboard
-bindsym --to-code $mod+c exec clipman pick -t STDOUT | fuzzel --dmenu --prompt='📋 ' | wl-copy
-# Empty the clipboard
-bindsym --to-code $mod+Shift+c exec clipman clear --all && notify-send "Clipman" "History cleared! 🗑️"
+# Show clipboard
+bindsym --to-code $mod+c exec cliphist list | fuzzel --dmenu --prompt='📋 ' | cliphist decode | wl-copy
+
+# Clear clipboard
+bindsym --to-code $mod+Shift+c exec cliphist wipe && notify-send "Clipboard" "History cleared!"
 
 ### Screenshots ###
 
