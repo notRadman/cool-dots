@@ -3,6 +3,8 @@ sway_source in /local.d/local.conf
 SWAYSOURCE in /scripts/toggle_second_bar.sh
 
 ### APPS ###
+fuzzel
+nvim
 tmux
 tilix
 lm_sensors

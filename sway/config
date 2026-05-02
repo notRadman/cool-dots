@@ -1,14 +1,15 @@
 ### Main variables ###
 set $mod Mod1
 set $term tilix
+#set $menu bemenu-run -b -fn "JetBrains Mono:size=14"
+set $menu fuzzel
 
 ### Includes ###
 include ./local.d/*.conf
-include ~/.config/sway/noctalia
 
 ### Keyboard ###
 input type:keyboard {
-    xkb_layout us,ara,il
+    xkb_layout us,ara
     xkb_options grp:lwin_toggle,lv3:ralt_alt
     repeat_delay 300
     repeat_rate 50
@@ -41,6 +42,9 @@ font pango: Noto Sans Mono 11
 # Terminal
 bindsym --to-code $mod+Return exec $term #-e tmux
 
+# Application Launcher
+bindsym --to-code $mod+d exec $menu
+
 # Kill Window
 bindsym --to-code $mod+Shift+q kill
 
@@ -50,7 +54,19 @@ bindsym --to-code $mod+Shift+Control+c reload
 # Exit Sway
 bindsym --to-code $mod+Shift+Control+q exit
 
+### Sound Control ###
+bindsym --to-code XF86AudioRaiseVolume exec wpctl set-volume -l 1.1 @DEFAULT_SINK@ 5%+
+bindsym --to-code XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym --to-code XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
+
+### Clipboard(near line 36) ###
+# Show the clipboard
+bindsym --to-code $mod+c exec clipman pick -t STDOUT | fuzzel --dmenu --prompt='📋 ' | wl-copy
+# Empty the clipboard
+bindsym --to-code $mod+Shift+c exec clipman clear --all && notify-send "Clipman" "History cleared! 🗑️"
+
 ### Screenshots ###
+
 # Whole screen
 bindsym --to-code $mod+bracketright exec bash -c 'mkdir -p ~/Pictures/Screenshots && f=~/Pictures/Screenshots/screenshot-$(date +%Y%m%d-%H%M%S).png && grim "$f" && notify-send "Screenshot ✓" "Saved: $(basename $f)" -i camera-photo'
 
@@ -139,8 +155,34 @@ mode "resize" {
 }
 bindsym --to-code $mod+r mode "resize"
 
+### Status Bar###
+#bar {
+#    position top
+#    tray_output none
+#    font pango:JetBrains Mono 11
+#
+#    status_command ------
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#
+#}
+#}
+
+### title bar ###
+#default_border pixel 2
+#default_floating_border pixel 2
+#Window colors - just the borders will be shown
+#                      border  background text    indicator child_border
+#client.focused          #ffffff #323232    #ffffff #ffffff   #ffffff
+#client.focused_inactive #5c5c5c #323232    #5c5c5c #5c5c5c   #5c5c5c
+#client.unfocused        #323232 #323232    #5c5c5c #323232   #323232
+#client.urgent           #ff0000 #323232    #ffffff #ff0000   #ff0000
+#client.placeholder      #323232 #323232    #5c5c5c #323232   #323232
+
 ### xwayland ###
 xwayland enable
 
 ### Idle & Lock ###
-#exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
