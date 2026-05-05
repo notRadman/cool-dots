@@ -10,7 +10,7 @@ include ./local.d/*.conf
 ### Keyboard ###
 input type:keyboard {
     xkb_layout us,ara
-    xkb_options lv3:ralt_alt
+    xkb_options grp:lwin_toggle,lv3:ralt_alt
     repeat_delay 300
     repeat_rate 50
 }
@@ -44,9 +44,6 @@ bindsym --to-code $mod+Return exec $term #-e tmux
 
 # Application Launcher
 bindsym --to-code $mod+d exec $menu
-
-# Language changing script
-bindsym --to-code Super_L exec ~/.config/sway/scripts/langnext.sh
 
 # Kill Window
 bindsym --to-code $mod+Shift+q kill
@@ -189,4 +186,9 @@ bindsym --to-code $mod+r mode "resize"
 xwayland enable
 
 ### Idle & Lock ###
-exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+#exec swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+    timeout 300 'swaymsg "input type:keyboard xkb_switch_layout 0" && swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaymsg "input type:keyboard xkb_switch_layout 0" && swaylock -f -c 000000'
