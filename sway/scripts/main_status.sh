@@ -123,7 +123,7 @@ while true; do
         campaign_counter=0
     fi
 
-    status_text="Vol: $volume | $mic_status | $cam_status | $battery | $wifi | $datetime |$campaign"
+    status_text="Vol: $volume | $mic_status | $cam_status | $battery | $wifi | $datetime | $campaign "
     
     echo "[{\"full_text\":\"$status_text\"}],"
     

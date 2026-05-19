@@ -1,6 +1,6 @@
 #!/bin/sh
 
-chosen=$(printf "  Lock\n  Log out\n  Suspend\n  Hibernate\n  Reboot\n  Power off" \
+chosen=$(printf "  Power off\n  Reboot\n  Log out\n  Suspend\n  Hibernate\n  Lock" \
   | fuzzel --dmenu )
 
 case "$chosen" in
