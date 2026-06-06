@@ -83,8 +83,11 @@ end
 
 
 -- ========== Additionals ==========
--- vim.opt.guicursor = "a:hor20"
+vim.opt.guicursor = "a:hor20"
 vim.opt.colorcolumn = "80"
+-- vim.keymap.set("n", "<leader>m", function()
+--     require("mini.files").open()
+-- end)
 
 -- ========== Load Plugins ==========
 require('config.lazy')
